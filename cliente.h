@@ -1,7 +1,7 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
 
-#include '../includes/structs.h'
+#include "structs.h"
 
 void cadastrarCliente();
 void listarClientes();
