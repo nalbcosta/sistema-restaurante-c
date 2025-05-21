@@ -2,6 +2,8 @@
 #define CLIENTE_H
 
 #include "structs.h"
+#include <stdio.h>
+#include "functions.h"
 
 void cadastrarCliente();
 void listarClientes();
