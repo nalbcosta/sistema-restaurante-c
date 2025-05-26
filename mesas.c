@@ -43,6 +43,7 @@ void cadastrarMesa() {
     scanf("%d", &novaMesa.numero);
     printf("Digite a capacidade da mesa: ");
     scanf("%d", &novaMesa.capacidade);
+    getchar(); // Limpa buffer
     // Carregar funcionários do arquivo
     FILE *ff = fopen("funcionarios.dat", "rb");
     Funcionario funcionarios[100];
@@ -70,6 +71,7 @@ void cadastrarMesa() {
     } else {
         printf("Digite o ID do garcom para atribuir a mesa: ");
         scanf("%d", &garcomIdEscolhido);
+        getchar(); // Limpa buffer
         novaMesa.garcom_id = garcomIdEscolhido;
     }
 
@@ -80,6 +82,7 @@ void cadastrarMesa() {
     printf("Escolha uma opção: ");
     int opcao;
     scanf("%d", &opcao);
+    getchar(); // Limpa buffer
     switch (opcao) {
         case 1:
             strcpy(novaMesa.status, "disponivel");
@@ -190,6 +193,7 @@ void editarMesa(int id) {
     printf("Escolha uma opção: ");
     int opcao;
     scanf("%d", &opcao);
+    getchar(); // Limpa buffer
     switch (opcao) {
         case 1:
             strcpy(mesa->status, "disponivel");
@@ -205,6 +209,7 @@ void editarMesa(int id) {
             printf("Digite o ID do cliente que está ocupando a mesa: ");
             int clienteIdEscolhido;
             scanf("%d", &clienteIdEscolhido);
+            getchar(); // Limpa buffer
             mesa->cliente_id = clienteIdEscolhido;
             break;
         case 3:
@@ -223,6 +228,7 @@ void editarMesa(int id) {
     printf("3. Terraco\n");
     printf("Escolha uma opção: ");
     scanf("%d", &opcao);
+    getchar(); // Limpa buffer
     switch (opcao) {
         case 1:
             strcpy(mesa->localizacao, "interior");

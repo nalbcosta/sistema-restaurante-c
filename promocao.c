@@ -32,15 +32,16 @@ void cadastrarPromocao() {
     Promocao nova;
     nova.id = totalPromocoes + 1;
     printf("Nome: ");
-    scanf(" %[^\n]", nova.nome);
+    scanf("%[^\n]", nova.nome);
     printf("Tipo: ");
-    scanf(" %[^\n]", nova.tipo);
+    scanf("%s", nova.tipo);
     printf("Valor: ");
     scanf("%f", &nova.valor);
     printf("Validade: ");
-    scanf(" %[^\n]", nova.validade);
+    scanf("%s", nova.validade);
     printf("ID do produto: ");
     scanf("%d", &nova.produto_id);
+    getchar(); // Limpa buffer
     promocoes[totalPromocoes++] = nova;
     salvarPromocoes();
     printf("Promocao cadastrada!\n");
@@ -68,15 +69,16 @@ void editarPromocao(int id) {
         return;
     }
     printf("Novo nome: ");
-    scanf(" %[^\n]", p->nome);
+    scanf("%[^\n]", p->nome);
     printf("Novo tipo: ");
-    scanf(" %[^\n]", p->tipo);
+    scanf("%s", p->tipo);
     printf("Novo valor: ");
     scanf("%f", &p->valor);
     printf("Nova validade: ");
-    scanf(" %[^\n]", p->validade);
+    scanf("%s", p->validade);
     printf("Novo ID do produto: ");
     scanf("%d", &p->produto_id);
+    getchar(); // Limpa buffer
     salvarPromocoes();
     printf("Editada!\n");
 }

@@ -32,11 +32,11 @@ void cadastrarItemPedido() {
     }
     ItemPedido novo;
     novo.id = totalItens + 1;
-    printf("ID do pedido: ");
+    printf("Digite o ID do pedido: ");
     scanf("%d", &novo.pedido_id);
-    printf("ID do produto: ");
+    printf("Digite o ID do produto: ");
     scanf("%d", &novo.produto_id);
-    printf("Quantidade: ");
+    printf("Digite a quantidade: ");
     scanf("%d", &novo.quantidade);
     Produto* prod = buscarProdutoPorId(novo.produto_id);
     if (!prod) {

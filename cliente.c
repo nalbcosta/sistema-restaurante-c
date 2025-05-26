@@ -39,13 +39,13 @@ void cadastrarCliente() {
     printf("=== Cadastro de Cliente ===\n");
     printf("ID: %d\n", novoCliente.id);
     printf("Digite o nome do cliente: ");
-    scanf(" %[^]", novoCliente.nome);
+    scanf("%[^\n]", novoCliente.nome);
     printf("Digite o CPF do cliente: ");
-    scanf(" %[^]", novoCliente.cpf);
+    scanf("%s", novoCliente.cpf);
     printf("Digite o telefone do cliente: ");
-    scanf(" %[^]", novoCliente.telefone);
+    scanf("%s", novoCliente.telefone);
     printf("Digite o email do cliente: ");
-    scanf(" %[^]", novoCliente.email);
+    scanf("%s", novoCliente.email);
     novoCliente.fidelidade = 0;
     clientes[totalClientes] = novoCliente;
     totalClientes++;

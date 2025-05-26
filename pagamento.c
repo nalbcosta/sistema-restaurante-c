@@ -33,14 +33,16 @@ void cadastrarPagamento() {
     novo.id = totalPagamentos + 1;
     printf("ID do pedido: ");
     scanf("%d", &novo.pedido_id);
+    getchar(); // Limpa buffer
     printf("Valor: ");
     scanf("%f", &novo.valor);
+    getchar(); // Limpa buffer
     printf("Forma de pagamento: ");
-    scanf(" %[^]", novo.forma_pagamento);
+    scanf("%s", novo.forma_pagamento);
     printf("Status: ");
-    scanf(" %[^]", novo.status);
+    scanf("%s", novo.status);
     printf("Data (DD/MM/AAAA): ");
-    scanf(" %[^]", novo.data);
+    scanf("%s", novo.data);
     pagamentos[totalPagamentos++] = novo;
     salvarPagamentos();
     printf("Pagamento cadastrado!\n");
@@ -70,11 +72,11 @@ void editarPagamento(int id) {
     printf("Novo valor: ");
     scanf("%f", &p->valor);
     printf("Nova forma de pagamento: ");
-    scanf(" %[^]", p->forma_pagamento);
+    scanf("%s", p->forma_pagamento);
     printf("Novo status: ");
-    scanf(" %[^]", p->status);
+    scanf("%s", p->status);
     printf("Nova data: ");
-    scanf(" %[^]", p->data);
+    scanf("%s", p->data);
     salvarPagamentos();
     printf("Editado!\n");
 }

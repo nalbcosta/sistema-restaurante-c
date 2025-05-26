@@ -35,7 +35,7 @@ void cadastrarFuncionario() {
     printf("=== Cadastro de Funcionario ===\n");
     printf("ID: %d\n", novoFuncionario.id);
     printf("Digite o nome do funcionario: ");
-    scanf("%s", novoFuncionario.nome);
+    scanf("%[^\n]", novoFuncionario.nome);
     // Seleção de cargo
     printf("Selecione o cargo:\n");
     printf("1. Garcom\n2. Gerente\n3. Cozinheiro\n4. Atendente\n5. Caixa\n");
@@ -106,7 +106,7 @@ void editarFuncionario(int id) {
     printf("ID: %d\n", func->id);
     printf("Nome atual: %s\n", func->nome);
     printf("Digite o novo nome: ");
-    scanf("%s", func->nome);
+    scanf("%[^\n]", func->nome);
     // Seleção de cargo
     printf("Cargo atual: %s\n", func->cargo);
     printf("Selecione o novo cargo:\n");

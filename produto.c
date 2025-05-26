@@ -32,15 +32,15 @@ void cadastrarProduto() {
     Produto novo;
     novo.id = totalProdutos + 1;
     printf("Nome: ");
-    scanf(" %[^\n]", novo.nome);
+    scanf("%[^\n]", novo.nome);
     printf("Categoria: ");
-    scanf(" %[^\n]", novo.categoria);
+    scanf("%[^\n]", novo.categoria);
     printf("Preco: ");
     scanf("%f", &novo.preco);
     printf("Estoque: ");
     scanf("%d", &novo.estoque);
     printf("Descricao: ");
-    scanf(" %[^\n]", novo.descricao);
+    scanf("%[^\n]", novo.descricao);
     produtos[totalProdutos++] = novo;
     salvarProdutos();
     printf("Produto cadastrado!\n");
@@ -68,15 +68,15 @@ void editarProduto(int id) {
         return;
     }
     printf("Novo nome: ");
-    scanf(" %[^\n]", p->nome);
+    scanf("%[^\n]", p->nome);
     printf("Nova categoria: ");
-    scanf(" %[^\n]", p->categoria);
+    scanf("%[^\n]", p->categoria);
     printf("Novo preco: ");
     scanf("%f", &p->preco);
     printf("Novo estoque: ");
     scanf("%d", &p->estoque);
     printf("Nova descricao: ");
-    scanf(" %[^\n]", p->descricao);
+    scanf("%[^\n]", p->descricao);
     salvarProdutos();
     printf("Editado!\n");
 }

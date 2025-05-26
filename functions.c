@@ -29,6 +29,7 @@ void menuPrincipal() {
         printf("0. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 printf("\nClientes selecionado.\n");
@@ -94,6 +95,7 @@ void menuClientes() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 printf("\nAdicionar Cliente selecionado.\n");
@@ -108,12 +110,14 @@ void menuClientes() {
                 printf("Digite o ID do cliente a ser editado: ");
                 int id;
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarCliente(id);
                 break;
             case 4:
                 printf("\nRemover Cliente selecionado.\n");
                 printf("Digite o ID do cliente a ser removido: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerCliente(id);
                 break;
             case 0:
@@ -138,6 +142,7 @@ void menuMesas() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 printf("\nAdicionar Mesa selecionado.\n");
@@ -151,12 +156,14 @@ void menuMesas() {
                 printf("\nEditar Mesa selecionado.\n");
                 printf("Digite o ID da mesa a ser editada: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarMesa(id);
                 break;
             case 4:
                 printf("\nRemover Mesa selecionado.\n");
                 printf("Digite o ID da mesa a ser removida: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerMesa(id);
                 break;
             case 0:
@@ -180,6 +187,7 @@ void menuPedidos() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 printf("Adicionar Pedido selecionado.\n");
@@ -193,12 +201,14 @@ void menuPedidos() {
                 printf("Editar Pedido selecionado.\n");
                 printf("Digite o ID do pedido a ser editado: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarPedido(id);
                 break;
             case 4:
                 printf("Remover Pedido selecionado.\n");
                 printf("Digite o ID do pedido a ser removido: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerPedido(id);
                 break;
             case 0:
@@ -221,6 +231,7 @@ void menuProdutos() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 cadastrarProduto();
@@ -231,11 +242,13 @@ void menuProdutos() {
             case 3:
                 printf("Digite o ID do produto a ser editado: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarProduto(id);
                 break;
             case 4:
                 printf("Digite o ID do produto a ser removido: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerProduto(id);
                 break;
             case 0:
@@ -257,6 +270,7 @@ void menuCategoriasProduto() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 cadastrarCategoriaProduto();
@@ -267,11 +281,13 @@ void menuCategoriasProduto() {
             case 3:
                 printf("Digite o ID da categoria a ser editada: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarCategoriaProduto(id);
                 break;
             case 4:
                 printf("Digite o ID da categoria a ser removida: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerCategoriaProduto(id);
                 break;
             case 0:
@@ -293,6 +309,7 @@ void menuItensPedido() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 cadastrarItemPedido();
@@ -303,11 +320,13 @@ void menuItensPedido() {
             case 3:
                 printf("Digite o ID do item a ser editado: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarItemPedido(id);
                 break;
             case 4:
                 printf("Digite o ID do item a ser removido: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerItemPedido(id);
                 break;
             case 0:
@@ -329,6 +348,7 @@ void menuPagamentos() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 cadastrarPagamento();
@@ -339,11 +359,13 @@ void menuPagamentos() {
             case 3:
                 printf("Digite o ID do pagamento a ser editado: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarPagamento(id);
                 break;
             case 4:
                 printf("Digite o ID do pagamento a ser removido: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerPagamento(id);
                 break;
             case 0:
@@ -365,6 +387,7 @@ void menuPromocoes() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 cadastrarPromocao();
@@ -375,11 +398,13 @@ void menuPromocoes() {
             case 3:
                 printf("Digite o ID da promocao a ser editada: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarPromocao(id);
                 break;
             case 4:
                 printf("Digite o ID da promocao a ser removida: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerPromocao(id);
                 break;
             case 0:
@@ -402,6 +427,7 @@ void menuFuncionarios() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 printf("Adicionar Funcionário selecionado.\n");
@@ -415,12 +441,14 @@ void menuFuncionarios() {
                 printf("Editar Funcionário selecionado.\n");
                 printf("Digite o ID do funcionário a ser editado: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarFuncionario(id);
                 break;
             case 4:
                 printf("Remover Funcionário selecionado.\n");
                 printf("Digite o ID do funcionário a ser removido: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerFuncionario(id);
                 break;
             case 0:
@@ -444,6 +472,7 @@ void menuReservas() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 printf("Adicionar Reserva selecionado.\n");
@@ -457,12 +486,14 @@ void menuReservas() {
                 printf("Editar Reserva selecionado.\n");
                 printf("Digite o ID da reserva a ser editada: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 editarReserva(id);
                 break;
             case 4:
                 printf("Remover Reserva selecionado.\n");
                 printf("Digite o ID da reserva a ser removida: ");
                 scanf("%d", &id);
+                getchar(); // Limpa o buffer antes de ler string
                 removerReserva(id);
                 break;
             case 0:
@@ -484,6 +515,7 @@ void menuRelatorios() {
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa o buffer antes de ler string
         switch (opcao) {
             case 1:
                 relatorioVendas();

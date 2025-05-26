@@ -48,6 +48,7 @@ void cadastrarPedido() {
     int clienteIdEscolhido;
     printf("Digite o ID do cliente: ");
     scanf("%d", &clienteIdEscolhido);
+    getchar(); // Limpa buffer
 
     // 3. Listar apenas mesas ocupadas ou reservadas pelo cliente escolhido
     printf("\n--- Mesas ocupadas ou reservadas pelo cliente ID %d ---\n", clienteIdEscolhido);
@@ -80,10 +81,11 @@ void cadastrarPedido() {
     printf("ID: %d\n", novoPedido.id);
     printf("Digite o ID da mesa: ");
     scanf("%d", &novoPedido.mesa_id);
+    getchar(); // Limpa buffer
     printf("Digite a data do pedido (DD/MM/AAAA): ");
-    scanf(" %[^]", novoPedido.data);
+    scanf("%s", novoPedido.data);
     printf("Digite o status do pedido (em andamento, concluido, cancelado): ");
-    scanf(" %[^]", novoPedido.status);
+    scanf("%[^\n]", novoPedido.status);
     novoPedido.valor_total = 0;
 
     // Se a mesa estava reservada, muda para ocupada e atualiza status da reserva
@@ -165,7 +167,7 @@ void editarPedido(int id) {
     scanf("%s", pedido->data);
     printf("Status atual: %s\n", pedido->status);
     printf("Digite o novo status (em andamento, concluido, cancelado): ");
-    scanf("%s", pedido->status);
+    scanf("%[^\n]", pedido->status);
     printf("Valor total atual: %.2f\n", pedido->valor_total);
     printf("Digite o novo valor total: ");
     scanf("%f", &pedido->valor_total);

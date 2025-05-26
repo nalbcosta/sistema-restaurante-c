@@ -32,15 +32,15 @@ void cadastrarCategoriaProduto() {
     CategoriaProduto c;
     c.id = totalCategorias + 1;
     printf("Nome: ");
-    scanf(" %[^]", c.nome);
+    scanf("%[^\n]", c.nome);
     printf("Descricao: ");
-    scanf(" %[^]", c.descricao);
+    scanf("%[^\n]", c.descricao);
     printf("Horario disponivel: ");
-    scanf(" %[^]", c.horario_disponivel);
+    scanf("%s", c.horario_disponivel);
     printf("Prioridade: ");
-    scanf(" %[^]", c.prioridade);
+    scanf("%s", c.prioridade);
     printf("Tipo: ");
-    scanf(" %[^]", c.tipo);
+    scanf("%s", c.tipo);
     categorias[totalCategorias++] = c;
     salvarCategoriasProduto();
     printf("Categoria cadastrada!\n");
@@ -68,15 +68,15 @@ void editarCategoriaProduto(int id) {
         return;
     }
     printf("Novo nome: ");
-    scanf(" %[^]", c->nome);
+    scanf("%[^\n]", c->nome);
     printf("Nova descricao: ");
-    scanf(" %[^]", c->descricao);
+    scanf("%[^\n]", c->descricao);
     printf("Novo horario disponivel: ");
-    scanf(" %[^]", c->horario_disponivel);
+    scanf("%s", c->horario_disponivel);
     printf("Nova prioridade: ");
-    scanf(" %[^]", c->prioridade);
+    scanf("%s", c->prioridade);
     printf("Novo tipo: ");
-    scanf(" %[^]", c->tipo);
+    scanf("%s", c->tipo);
     salvarCategoriasProduto();
     printf("Editada!\n");
 }
