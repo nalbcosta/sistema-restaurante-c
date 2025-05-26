@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include "functions.h"
 
+extern Mesa mesas[];
+extern int totalMesas;
+
 void cadastrarMesa();
 void listarMesas();
 Mesa* buscarMesaPorId(int id);

@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include "functions.h"
 
+extern Cliente clientes[];
+extern int totalClientes;
+
 void cadastrarCliente();
 void listarClientes();
 Cliente* buscarClientePorId(int id);

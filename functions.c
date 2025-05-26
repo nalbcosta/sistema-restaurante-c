@@ -2,7 +2,15 @@
 #include "functions.h"
 #include "cliente.h"
 #include "mesas.h"
-
+#include "pedido.h"
+#include "funcionarios.h"
+#include "reserva.h"
+#include "produto.h"
+#include "categoria_produto.h"
+#include "item_pedido.h"
+#include "pagamento.h"
+#include "promocao.h"
+#include "relatorios.h"
 void menuPrincipal() {
     int opcao;
     do {
@@ -11,6 +19,13 @@ void menuPrincipal() {
         printf("2. Mesas\n");
         printf("3. Pedidos\n");
         printf("4. Produtos\n");
+        printf("5. Categorias de Produto\n");
+        printf("6. Itens de Pedido\n");
+        printf("7. Pagamentos\n");
+        printf("8. Promocoes\n");
+        printf("9. Funcionarios\n");
+        printf("10. Reservas\n");
+        printf("11. Relatorios\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
@@ -30,6 +45,33 @@ void menuPrincipal() {
             case 4:
                 printf("\nProdutos selecionado.\n");
                 menuProdutos();
+                break;
+            case 5:
+                printf("\nCategorias de Produto selecionado.\n");
+                menuCategoriasProduto();
+                break;
+            case 6:
+                printf("\nItens de Pedido selecionado.\n");
+                menuItensPedido();
+                break;
+            case 7:
+                printf("\nPagamentos selecionado.\n");
+                menuPagamentos();
+                break;
+            case 8:
+                printf("\nPromocoes selecionado.\n");
+                menuPromocoes();
+                break;
+            case 9:
+                printf("\nFuncionarios selecionado.\n");
+                menuFuncionarios();
+                break;
+            case 10:
+                printf("\nReservas selecionado.\n");
+                menuReservas();
+                break;
+            case 11:
+                menuRelatorios();
                 break;
             case 0:
                 printf("\nSaindo do sistema...\n");
@@ -86,6 +128,7 @@ void menuClientes() {
 
 void menuMesas() {
     int opcao;
+    int id;
     do {
         printf("\n=== Menu Mesas ===\n");
         printf("1. Adicionar Mesa\n");
@@ -98,19 +141,23 @@ void menuMesas() {
         switch (opcao) {
             case 1:
                 printf("\nAdicionar Mesa selecionado.\n");
-                // Aqui você pode chamar a função para adicionar mesa
+                cadastrarMesa();
                 break;
             case 2:
                 printf("\nListar Mesas selecionado.\n");
-                // Aqui você pode chamar a função para listar mesas
+                listarMesas();
                 break;
             case 3:
                 printf("\nEditar Mesa selecionado.\n");
-                // Aqui você pode chamar a função para editar mesa
+                printf("Digite o ID da mesa a ser editada: ");
+                scanf("%d", &id);
+                editarMesa(id);
                 break;
             case 4:
                 printf("\nRemover Mesa selecionado.\n");
-                // Aqui você pode chamar a função para remover mesa
+                printf("Digite o ID da mesa a ser removida: ");
+                scanf("%d", &id);
+                removerMesa(id);
                 break;
             case 0:
                 printf("\nVoltando ao menu principal...\n");
@@ -123,6 +170,7 @@ void menuMesas() {
 
 void menuPedidos() {
     int opcao;
+    int id;
     do {
         printf("\n=== Menu Pedidos ===\n");
         printf("1. Adicionar Pedido\n");
@@ -135,19 +183,23 @@ void menuPedidos() {
         switch (opcao) {
             case 1:
                 printf("Adicionar Pedido selecionado.\n");
-                // Aqui você pode chamar a função para adicionar pedido
+                cadastrarPedido();
                 break;
             case 2:
                 printf("Listar Pedidos selecionado.\n");
-                // Aqui você pode chamar a função para listar pedidos
+                listarPedidos();
                 break;
             case 3:
                 printf("Editar Pedido selecionado.\n");
-                // Aqui você pode chamar a função para editar pedido
+                printf("Digite o ID do pedido a ser editado: ");
+                scanf("%d", &id);
+                editarPedido(id);
                 break;
             case 4:
                 printf("Remover Pedido selecionado.\n");
-                // Aqui você pode chamar a função para remover pedido
+                printf("Digite o ID do pedido a ser removido: ");
+                scanf("%d", &id);
+                removerPedido(id);
                 break;
             case 0:
                 printf("Voltando ao menu principal...\n");
@@ -159,7 +211,7 @@ void menuPedidos() {
 }
 
 void menuProdutos() {
-    int opcao;
+    int opcao, id;
     do {
         printf("\n=== Menu Produtos ===\n");
         printf("1. Adicionar Produto\n");
@@ -171,20 +223,247 @@ void menuProdutos() {
         scanf("%d", &opcao);
         switch (opcao) {
             case 1:
-                printf("Adicionar Produto selecionado.\n");
-                // Aqui você pode chamar a função para adicionar produto
+                cadastrarProduto();
                 break;
             case 2:
-                printf("Listar Produtos selecionado.\n");
-                // Aqui você pode chamar a função para listar produtos
+                listarProdutos();
                 break;
             case 3:
-                printf("Editar Produto selecionado.\n");
-                // Aqui você pode chamar a função para editar produto
+                printf("Digite o ID do produto a ser editado: ");
+                scanf("%d", &id);
+                editarProduto(id);
                 break;
             case 4:
-                printf("Remover Produto selecionado.\n");
-                // Aqui você pode chamar a função para remover produto
+                printf("Digite o ID do produto a ser removido: ");
+                scanf("%d", &id);
+                removerProduto(id);
+                break;
+            case 0:
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+        }
+    } while (opcao != 0);
+}
+
+void menuCategoriasProduto() {
+    int opcao, id;
+    do {
+        printf("\n=== Menu Categorias de Produto ===\n");
+        printf("1. Adicionar Categoria\n");
+        printf("2. Listar Categorias\n");
+        printf("3. Editar Categoria\n");
+        printf("4. Remover Categoria\n");
+        printf("0. Voltar ao menu principal\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        switch (opcao) {
+            case 1:
+                cadastrarCategoriaProduto();
+                break;
+            case 2:
+                listarCategoriasProduto();
+                break;
+            case 3:
+                printf("Digite o ID da categoria a ser editada: ");
+                scanf("%d", &id);
+                editarCategoriaProduto(id);
+                break;
+            case 4:
+                printf("Digite o ID da categoria a ser removida: ");
+                scanf("%d", &id);
+                removerCategoriaProduto(id);
+                break;
+            case 0:
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+        }
+    } while (opcao != 0);
+}
+
+void menuItensPedido() {
+    int opcao, id;
+    do {
+        printf("\n=== Menu Itens de Pedido ===\n");
+        printf("1. Adicionar Item ao Pedido\n");
+        printf("2. Listar Itens de Pedido\n");
+        printf("3. Editar Item de Pedido\n");
+        printf("4. Remover Item de Pedido\n");
+        printf("0. Voltar ao menu principal\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        switch (opcao) {
+            case 1:
+                cadastrarItemPedido();
+                break;
+            case 2:
+                listarItensPedido();
+                break;
+            case 3:
+                printf("Digite o ID do item a ser editado: ");
+                scanf("%d", &id);
+                editarItemPedido(id);
+                break;
+            case 4:
+                printf("Digite o ID do item a ser removido: ");
+                scanf("%d", &id);
+                removerItemPedido(id);
+                break;
+            case 0:
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+        }
+    } while (opcao != 0);
+}
+
+void menuPagamentos() {
+    int opcao, id;
+    do {
+        printf("\n=== Menu Pagamentos ===\n");
+        printf("1. Adicionar Pagamento\n");
+        printf("2. Listar Pagamentos\n");
+        printf("3. Editar Pagamento\n");
+        printf("4. Remover Pagamento\n");
+        printf("0. Voltar ao menu principal\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        switch (opcao) {
+            case 1:
+                cadastrarPagamento();
+                break;
+            case 2:
+                listarPagamentos();
+                break;
+            case 3:
+                printf("Digite o ID do pagamento a ser editado: ");
+                scanf("%d", &id);
+                editarPagamento(id);
+                break;
+            case 4:
+                printf("Digite o ID do pagamento a ser removido: ");
+                scanf("%d", &id);
+                removerPagamento(id);
+                break;
+            case 0:
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+        }
+    } while (opcao != 0);
+}
+
+void menuPromocoes() {
+    int opcao, id;
+    do {
+        printf("\n=== Menu Promocoes ===\n");
+        printf("1. Adicionar Promocao\n");
+        printf("2. Listar Promocoes\n");
+        printf("3. Editar Promocao\n");
+        printf("4. Remover Promocao\n");
+        printf("0. Voltar ao menu principal\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        switch (opcao) {
+            case 1:
+                cadastrarPromocao();
+                break;
+            case 2:
+                listarPromocoes();
+                break;
+            case 3:
+                printf("Digite o ID da promocao a ser editada: ");
+                scanf("%d", &id);
+                editarPromocao(id);
+                break;
+            case 4:
+                printf("Digite o ID da promocao a ser removida: ");
+                scanf("%d", &id);
+                removerPromocao(id);
+                break;
+            case 0:
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+        }
+    } while (opcao != 0);
+}
+
+void menuFuncionarios() {
+    int opcao;
+    int id;
+    do {
+        printf("\n=== Menu Funcionários ===\n");
+        printf("1. Adicionar Funcionário\n");
+        printf("2. Listar Funcionários\n");
+        printf("3. Editar Funcionário\n");
+        printf("4. Remover Funcionário\n");
+        printf("0. Voltar ao menu principal\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        switch (opcao) {
+            case 1:
+                printf("Adicionar Funcionário selecionado.\n");
+                cadastrarFuncionario();
+                break;
+            case 2:
+                printf("Listar Funcionários selecionado.\n");
+                listarFuncionarios();
+                break;
+            case 3:
+                printf("Editar Funcionário selecionado.\n");
+                printf("Digite o ID do funcionário a ser editado: ");
+                scanf("%d", &id);
+                editarFuncionario(id);
+                break;
+            case 4:
+                printf("Remover Funcionário selecionado.\n");
+                printf("Digite o ID do funcionário a ser removido: ");
+                scanf("%d", &id);
+                removerFuncionario(id);
+                break;
+            case 0:
+                printf("Voltando ao menu principal...\n");
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+        }
+    } while (opcao != 0);
+}
+
+void menuReservas() {
+    int opcao;
+    int id;
+    do {
+        printf("\n=== Menu Reservas ===\n");
+        printf("1. Adicionar Reserva\n");
+        printf("2. Listar Reservas\n");
+        printf("3. Editar Reserva\n");
+        printf("4. Remover Reserva\n");
+        printf("0. Voltar ao menu principal\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        switch (opcao) {
+            case 1:
+                printf("Adicionar Reserva selecionado.\n");
+                cadastrarReserva();
+                break;
+            case 2:
+                printf("Listar Reservas selecionado.\n");
+                listarReservas();
+                break;
+            case 3:
+                printf("Editar Reserva selecionado.\n");
+                printf("Digite o ID da reserva a ser editada: ");
+                scanf("%d", &id);
+                editarReserva(id);
+                break;
+            case 4:
+                printf("Remover Reserva selecionado.\n");
+                printf("Digite o ID da reserva a ser removida: ");
+                scanf("%d", &id);
+                removerReserva(id);
                 break;
             case 0:
                 printf("Voltando ao menu principal...\n");
@@ -198,25 +477,22 @@ void menuProdutos() {
 void menuRelatorios() {
     int opcao;
     do {
-        printf("\n=== Menu Relatórios ===\n");
-        printf("1. Relatório de Vendas\n");
-        printf("2. Relatório de Clientes\n");
-        printf("3. Relatório de Mesas\n");
+        printf("\n=== Menu Relatorios ===\n");
+        printf("1. Relatorio de Vendas\n");
+        printf("2. Relatorio de Clientes\n");
+        printf("3. Relatorio de Mesas\n");
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
         switch (opcao) {
             case 1:
-                printf("Relatório de Vendas selecionado.\n");
-                // Aqui você pode chamar a função para gerar relatório de vendas
+                relatorioVendas();
                 break;
             case 2:
-                printf("Relatório de Clientes selecionado.\n");
-                // Aqui você pode chamar a função para gerar relatório de clientes
+                relatorioClientes();
                 break;
             case 3:
-                printf("Relatório de Mesas selecionado.\n");
-                // Aqui você pode chamar a função para gerar relatório de mesas
+                relatorioMesas();
                 break;
             case 0:
                 printf("Voltando ao menu principal...\n");

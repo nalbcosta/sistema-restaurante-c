@@ -4,8 +4,8 @@
 
 #define MAX_CLIENTES 100
 
-static Cliente clientes[MAX_CLIENTES];
-static int totalClientes = 0;
+Cliente clientes[MAX_CLIENTES];
+int totalClientes = 0;
 
 // Função para carregar clientes de um arquivo
 void carregarClientes() {
@@ -35,17 +35,18 @@ void cadastrarCliente() {
     }
 
     Cliente novoCliente;
+    novoCliente.id = totalClientes + 1; // Corrige o ID
     printf("=== Cadastro de Cliente ===\n");
-    printf("ID: %d\n", totalClientes + 1);
+    printf("ID: %d\n", novoCliente.id);
     printf("Digite o nome do cliente: ");
-    scanf("%s", novoCliente.nome);
+    scanf(" %[^]", novoCliente.nome);
     printf("Digite o CPF do cliente: ");
-    scanf("%s", novoCliente.cpf);
+    scanf(" %[^]", novoCliente.cpf);
     printf("Digite o telefone do cliente: ");
-    scanf("%s", novoCliente.telefone);
+    scanf(" %[^]", novoCliente.telefone);
     printf("Digite o email do cliente: ");
-    scanf("%s", novoCliente.email);
-
+    scanf(" %[^]", novoCliente.email);
+    novoCliente.fidelidade = 0;
     clientes[totalClientes] = novoCliente;
     totalClientes++;
     salvarClientes();

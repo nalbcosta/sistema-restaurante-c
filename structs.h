@@ -1,4 +1,6 @@
 // Structs do Sistema do Restaurante
+#ifndef STRUCTS_H
+#define STRUCTS_H
 
 //1. Cliente
 typedef struct {
@@ -17,6 +19,8 @@ typedef struct {
   int capacidade;      // Capacidade da mesa (número de pessoas)
   char status[10];     // Status da mesa (disponível, ocupada, reservada)
   int garcom_id;       // Identificador do garçom responsável pela mesa
+  int cliente_id;    // Identificador do cliente que está utilizando a mesa
+  char data_reserva[20]; // Data da reserva (formato: DD/MM/AAAA)
   char localizacao[20];  // Localização da mesa (ex: interior, varanda, terraço)
 } Mesa;
 
@@ -99,3 +103,5 @@ typedef struct{
   int mesa_id;         // Identificador da mesa reservada
   char status[10];     // Status da reserva (confirmada, cancelada, pendente)
 } Reserva;
+
+#endif
